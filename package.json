@@ -1,0 +1,8 @@
+{
+  "name": "logic-puzzle-solver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:airtoxin/logic-puzzle-solver.git",
+  "author": "airtoxin <airtoxin@icloud.com>",
+  "license": "MIT"
+}
