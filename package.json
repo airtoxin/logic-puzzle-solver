@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/node": "^12.12.7",
+    "logic-solver": "^2.0.1",
     "typescript": "^3.7.2"
   }
 }

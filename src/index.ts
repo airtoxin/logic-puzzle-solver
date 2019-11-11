@@ -1,3 +1,11 @@
-const a: number = 1;
+import * as Logic from "logic-solver";
+import {consumeSolve} from "./helpers";
 
-console.log(a);
+const solver = new Logic.Solver();
+
+solver.require(Logic.atMostOne("Alice", "Bob"));
+solver.require(Logic.or("Bob", "Charlie"));
+
+consumeSolve(solver).forEach(solution => {
+  console.log(solution.getTrueVars());
+});
