@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:airtoxin/logic-puzzle-solver.git",
   "author": "airtoxin <airtoxin@icloud.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc --watch --incremental"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.7",
+    "typescript": "^3.7.2"
+  }
 }
