@@ -2,7 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es2018",
-    "module":"commonjs",
+    "module": "commonjs",
     "lib": ["es2019", "es2020"],
     "noImplicitAny": true,
     "strict": true,
@@ -13,11 +13,7 @@
     "emitDecoratorMetadata": true,
     "declarationDir": "dist",
     "outDir": "dist",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

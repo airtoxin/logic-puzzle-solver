@@ -6,11 +6,15 @@
   "author": "airtoxin <airtoxin@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --watch --incremental"
+    "start": "tsc --watch --incremental",
+    "format": "prettier --write 'src/**/*'"
   },
   "dependencies": {
     "@types/node": "^12.12.7",
     "logic-solver": "^2.0.1",
     "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }

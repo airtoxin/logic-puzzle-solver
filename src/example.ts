@@ -1,5 +1,5 @@
 import * as Logic from "logic-solver";
-import {consumeSolve} from "./helpers";
+import { consumeSolve } from "./helpers";
 
 const solver = new Logic.Solver();
 
