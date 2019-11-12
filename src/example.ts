@@ -1,11 +1,12 @@
 import * as Logic from "logic-solver";
-import { consumeSolve } from "./helpers";
+import { consumeSolution } from "./helpers";
 
 const solver = new Logic.Solver();
 
-solver.require(Logic.atMostOne("Alice", "Bob"));
+solver.require("-Alice", "-Charlie");
+solver.require(Logic.exactlyOne("Alice", "Bob", "Dave"));
 solver.require(Logic.or("Bob", "Charlie"));
 
-consumeSolve(solver).forEach(solution => {
+consumeSolution(solver).forEach(solution => {
   console.log(solution.getTrueVars());
 });
