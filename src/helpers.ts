@@ -1,8 +1,10 @@
 import { Solution, Solver } from "logic-solver";
 
 export function* iterateSolution(solver: Solver ): Iterable<Solution> {
-  let sol = null;
-  while ((sol = solver.solve())) {
+  while (true) {
+    const sol = solver.solve();
+    if (!sol) break;
+
     solver.forbid(sol.getFormula());
     yield sol;
   }

@@ -3,7 +3,7 @@ import { consumeSolution } from "./helpers";
 
 const solver = new Logic.Solver();
 
-solver.require("-Alice", "-Charlie");
+solver.require(Logic.exactlyOne("-Alice", "Charlie", "Bob"));
 solver.require(Logic.exactlyOne("Alice", "Bob", "Dave"));
 solver.require(Logic.or("Bob", "Charlie"));
 
