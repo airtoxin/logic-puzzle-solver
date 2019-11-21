@@ -56,6 +56,7 @@ declare module "logic-solver" {
   }
 
   class Bits {
+    public bits: string[];
     constructor(formulas: Operand[]);
   }
   function isBits(value: any): value is Bits;

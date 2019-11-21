@@ -11,4 +11,6 @@ export const createNumberVariable = (num: number) => ({
   num
 });
 
-export type Variable = ReturnType<typeof createBooleanVariable | typeof createNumberVariable>;
+export type Variable = ReturnType<
+  typeof createBooleanVariable | typeof createNumberVariable
+>;

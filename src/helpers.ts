@@ -1,6 +1,6 @@
 import { Solution, Solver } from "logic-solver";
 
-export function* iterateSolution(solver: Solver ): Iterable<Solution> {
+export function* iterateSolution(solver: Solver): Iterable<Solution> {
   while (true) {
     const sol = solver.solve();
     if (!sol) break;

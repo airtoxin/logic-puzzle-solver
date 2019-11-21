@@ -8,26 +8,38 @@ export interface Cell {
 }
 
 const getCellVariable = (cell: Cell) => `C${cell.x}-${cell.y}:${cell.num}`;
-const getCellNumber = (cellVariable: string) => Number.parseInt(cellVariable.split(":")[1], 10);
+const getCellNumber = (cellVariable: string) =>
+  Number.parseInt(cellVariable.split(":")[1], 10);
 
-export function *solve(size: number, filledCells: Cell[]): IterableIterator<number[][]> {
+export function* solve(
+  size: number,
+  filledCells: Cell[]
+): IterableIterator<number[][]> {
   const boxSize = Math.sqrt(size);
   const solver = new Logic.Solver();
 
-  const boardVariables = range(size).map(y => range(size).map(x => range(size).map(num => getCellVariable({x, y, num}))));
+  const boardVariables = range(size).map(y =>
+    range(size).map(x => range(size).map(num => getCellVariable({ x, y, num })))
+  );
 
   for (const a of range(size)) {
     for (const b of range(size)) {
       // num in cell
-      const cellVariables = range(size).map(num => getCellVariable({ x: a, y: b, num }));
+      const cellVariables = range(size).map(num =>
+        getCellVariable({ x: a, y: b, num })
+      );
       solver.require(Logic.exactlyOne(...cellVariables));
 
       // num in row
-      const rowVariables = range(size).map(x => getCellVariable({x, y: a, num: b}));
+      const rowVariables = range(size).map(x =>
+        getCellVariable({ x, y: a, num: b })
+      );
       solver.require(Logic.exactlyOne(...rowVariables));
 
       // // num in col
-      const colVariables = range(size).map(y => getCellVariable({x: a, y, num: b}));
+      const colVariables = range(size).map(y =>
+        getCellVariable({ x: a, y, num: b })
+      );
       solver.require(Logic.exactlyOne(...colVariables));
     }
   }
@@ -49,10 +61,15 @@ export function *solve(size: number, filledCells: Cell[]): IterableIterator<numb
   }
 
   for (const solution of iterateSolution(solver)) {
-    const boardSolution = boardVariables.map(
-      rowVariables => rowVariables.map(
-        variablesInCell => variablesInCell.find(cellVariable => solution.evaluate(cellVariable)) as string
-      ).map(getCellNumber)
+    const boardSolution = boardVariables.map(rowVariables =>
+      rowVariables
+        .map(
+          variablesInCell =>
+            variablesInCell.find(cellVariable =>
+              solution.evaluate(cellVariable)
+            ) as string
+        )
+        .map(getCellNumber)
     );
     solver.forbid(solution.getFormula());
     yield boardSolution;
