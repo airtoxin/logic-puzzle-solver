@@ -13,7 +13,7 @@
   "dependencies": {
     "@types/node": "^12.12.7",
     "js-combinatorics": "^0.5.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "logic-solver": "^2.0.1",
     "typescript": "^3.7.2"
   },
